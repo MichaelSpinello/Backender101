@@ -21,6 +21,7 @@ public class Profession {
     @Column(name = "title")
     private String title;
 
+    @Transient
     @OneToMany(mappedBy = "profession")
     private Set<Person> personSet;
 

@@ -8,5 +8,14 @@ import java.util.List;
 public interface ProfessionService {
 
     List<ProfessionDto> getAll();
-    ProfessionDto findProfessionById(Long id);
+
+    ProfessionDto findById(Long id);
+
+    Profession save(ProfessionDto dto);
+
+    void delete(Long id);
+
+    Profession edit(Long id, ProfessionDto professionDto);
+
+    List<ProfessionDto> filterByName(String firstName, String lastName);
 }

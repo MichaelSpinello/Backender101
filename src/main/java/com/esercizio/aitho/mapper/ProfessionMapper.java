@@ -2,23 +2,12 @@ package com.esercizio.aitho.mapper;
 
 import com.esercizio.aitho.dto.ProfessionDto;
 import com.esercizio.aitho.model.Profession;
-import org.springframework.stereotype.Component;
+import org.mapstruct.Mapper;
 
-@Component
-public class ProfessionMapper implements Mapper<Profession, ProfessionDto> {
-    @Override
-    public Profession toEntity(ProfessionDto dto) {
-        Profession entity = new Profession();
-        entity.setId(dto.getId());
-        entity.setTitle(dto.getTitle());
-        return entity;
-    }
+@Mapper(componentModel = "spring")
+public interface ProfessionMapper {
 
-    @Override
-    public ProfessionDto toDto(Profession entity) {
-        ProfessionDto dto = new ProfessionDto();
-        dto.setId(entity.getId());
-        dto.setTitle(entity.getTitle());
-        return dto;
-    }
+    ProfessionDto toDto(Profession entity);
+
+    Profession toEntity(ProfessionDto dto);
 }
