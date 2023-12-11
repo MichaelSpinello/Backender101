@@ -37,7 +37,7 @@ public class PersonController {
     public ResponseEntity<String> getNamesByFirstLetter(@RequestBody @Valid NamesRequestDto namesRequestDto) {
         String names = personService.getNamesByFirstLetter(namesRequestDto.getFirstLetter());
         if(names.isEmpty()){
-            return new ResponseEntity<>(HttpStatus.NO_CONTENT);
+            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
         }
 
         return new ResponseEntity<>(names, HttpStatus.OK);
